@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Person } from '../../../_models/Person';
 
@@ -7,7 +7,7 @@ import { Person } from '../../../_models/Person';
   templateUrl: './person.create.component.html',
   styleUrls: ['./person.create.component.scss']
 })
-export class GscPersonCreate implements OnInit {
+export class GscPersonCreate {
 
   public createdPerson: Person;
 
@@ -20,11 +20,6 @@ export class GscPersonCreate implements OnInit {
 
   @Output('gsOnCreated')
   public onCreated = new EventEmitter<Person>();
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   public create(p: gs.IPersonData) {
     this.createdPerson = new Person(p);

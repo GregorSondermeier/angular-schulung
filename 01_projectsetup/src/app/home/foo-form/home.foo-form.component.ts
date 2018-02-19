@@ -1,19 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'gsc-home-foo-form',
   templateUrl: './home.foo-form.component.html',
   styleUrls: ['./home.foo-form.component.scss']
 })
-export class GscFooFormComponent implements OnInit {
+export class GscFooFormComponent {
   public foo: string;
   public fooTemp: string;
-
-  constructor() { }
-
-  ngOnInit() {
-
-  }
 
   public changeFoo(foo: string) {
     this.foo = foo;
