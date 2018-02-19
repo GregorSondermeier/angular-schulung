@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { GscFooFormComponent } from "./home-foo.component";
 
-import { GspPersonList } from './person.list.component';
-
-describe('GspPersonList', () => {
-  let component: GspPersonList;
-  let fixture: ComponentFixture<GspPersonList>;
+describe('GscFooFormComponent', () => {
+  let component: GscFooFormComponent;
+  let fixture: ComponentFixture<GscFooFormComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GspPersonList ]
+      declarations: [ GscFooFormComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GspPersonList);
+    fixture = TestBed.createComponent(GscFooFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

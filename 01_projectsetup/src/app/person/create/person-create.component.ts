@@ -4,8 +4,8 @@ import { Person } from '../../../_models/Person';
 
 @Component({
   selector: 'gsc-person-create',
-  templateUrl: './person.create.component.html',
-  styleUrls: ['./person.create.component.scss']
+  templateUrl: './person-create.component.html',
+  styleUrls: ['./person-create.component.scss']
 })
 export class GscPersonCreate {
 

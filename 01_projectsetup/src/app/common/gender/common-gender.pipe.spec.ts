@@ -1,4 +1,4 @@
-import { GspCommonGenderPipe } from "./common.gender.pipe";
+import { GspCommonGenderPipe } from "./common-gender.pipe";
 
 describe('Gender', () => {
   it('create an instance', () => {

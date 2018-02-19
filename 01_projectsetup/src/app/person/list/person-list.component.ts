@@ -3,10 +3,10 @@ import { Person } from "../../../_models/Person";
 
 @Component({
   selector: 'gsc-person-list',
-  templateUrl: './person.list.component.html',
-  styleUrls: ['./person.list.component.css']
+  templateUrl: './person-list.component.html',
+  styleUrls: ['./person-list.component.scss']
 })
-export class GspPersonList {
+export class GscPersonList {
 
   @Input('gsPersons')
   public persons: Array<Person>;

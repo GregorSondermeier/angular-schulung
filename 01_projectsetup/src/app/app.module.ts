@@ -4,12 +4,13 @@ import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
 import { GscAppComponent } from './app.component';
-import { GspCommonGenderPipe } from "./common/gender/common.gender.pipe";
-import { GscFooFormComponent } from "./home/foo-form/home.foo-form.component";
+import { GspCommonGenderPipe } from "./common/gender/common-gender.pipe";
+import { GscFooFormComponent } from "./home/foo/home-foo.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { GspPersonHeigtPipe } from "./person/person.height.pipe";
-import { GscPersonCreate } from "./person/create/person.create.component";
-import { GspPersonList } from "./person/list/person.list.component";
+import { GspPersonHeigtPipe } from "./person/person.pipes";
+import { GscPersonCreate } from "./person/create/person-create.component";
+import { GscPersonList } from "./person/list/person-list.component";
+import { GscPersonListDetails } from "./person/list/details/person-list-details.component";
 
 registerLocaleData(localeDe, 'de');
 
@@ -39,7 +40,8 @@ registerLocaleData(localeDe, 'de');
     // person
     GspPersonHeigtPipe,
     GscPersonCreate,
-    GspPersonList
+    GscPersonList,
+    GscPersonListDetails
   ],
   bootstrap: [GscAppComponent]
 })
