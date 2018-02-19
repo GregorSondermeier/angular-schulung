@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { FooFormComponent } from './foo-form/foo-form.component';
 import { PersonComponent } from './person/person.component';
 import { PersonHeigtPipe } from './person/person.height.pipe';
+import { PeopleComponent } from './people/people.component';
 
 // the second parameter 'fr' is optional
 registerLocaleData(localeDe, 'de');
@@ -18,7 +19,8 @@ registerLocaleData(localeDe, 'de');
     AppComponent,
     FooFormComponent,
     PersonComponent,
-    PersonHeigtPipe
+    PersonHeigtPipe,
+    PeopleComponent
   ],
   imports: [
     BrowserModule,

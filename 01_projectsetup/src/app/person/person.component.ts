@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Person } from '../../_models/Person';
 
 @Component({
@@ -15,6 +15,9 @@ export class PersonComponent implements OnInit {
     salary: null
   };
 
+  @Output('gsAddFn')
+  addFn = new EventEmitter<Person>();
+
   constructor() { }
 
   ngOnInit() {
@@ -22,6 +25,7 @@ export class PersonComponent implements OnInit {
 
   public persistPerson(p: gs.IPersonData) {
     this.persistedPerson = new Person(p);
+    this.addFn.emit(this.persistedPerson);
   }
 
 }

@@ -11,7 +11,11 @@
 
 <hr />
 
-<app-person></app-person>
+<app-person (gsAddFn)="addPersonToPeople($event)"></app-person>
+
+<hr />
+
+<app-people [gsPeople]="people"></app-people>
 
 <hr />
 
