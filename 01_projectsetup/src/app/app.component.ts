@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Person} from "../_models/Person";
+import { Person } from "../_models/Person";
 
 @Component({
   selector: 'gsa-app',

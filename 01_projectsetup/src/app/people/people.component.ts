@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Person} from "../../_models/Person";
+import { Component, Input } from '@angular/core';
+import { Person } from "../../_models/Person";
 
 @Component({
   selector: 'app-people',
