@@ -1,0 +1,42 @@
+<h2>Person:</h2>
+<form name="personForm">
+  <ul>
+    <li>
+      <input type="text"
+             [(ngModel)]="tmpPerson.firstName"
+             name="tmpPerson.firstName"
+             placeholder="First Name"
+             title="First Name" />
+    </li>
+    <li>
+      <input type="text"
+             [(ngModel)]="tmpPerson.lastName"
+             name="tmpPerson.lastName"
+             placeholder="Last Name"
+             title="Last Name" />
+    </li>
+    <li>
+      <input type="number"
+             [(ngModel)]="tmpPerson.height"
+             name="tmpPerson.height"
+             placeholder="Height (cm)"
+             title="Height (cm)" />
+    </li>
+    <li>
+      <input type="number"
+             [(ngModel)]="tmpPerson.salary"
+             name="tmpPerson.salary"
+             placeholder="Salary"
+             title="Salary" />
+    </li>
+    <li>
+
+      <button type="submit"
+              (click)="persistPerson(tmpPerson)"
+              title="persistPerson(tmpPerson)">persistPerson(tmpPerson)</button>
+    </li>
+    <li>
+      <span *ngIf="persistedPerson">{{persistedPerson.name()}} is {{persistedPerson | personHeight}} tall and has a salary of {{persistedPerson.salary | currency : 'EUR'}}.</span>
+    </li>
+  </ul>
+</form>
