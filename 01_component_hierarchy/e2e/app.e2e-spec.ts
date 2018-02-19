@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('projectsetup App', () => {
+describe('Angular Component Hierarchy App', () => {
   let page: AppPage;
 
   beforeEach(() => {
