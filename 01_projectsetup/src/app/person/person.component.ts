@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Person } from '../../_models/Person';
 
 @Component({
@@ -10,12 +11,12 @@ export class PersonComponent implements OnInit {
 
   public persistedPerson: Person;
 
-  public tmpPerson: gs.IPersonData = {
-    firstName: null,
-    lastName: null,
-    height: null,
-    gender: null
-  };
+  public personForm: FormGroup = new FormGroup ({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    height: new FormControl(),
+    gender: new FormControl()
+  });
 
   @Output('gsOnPersisted')
   public onPersisted = new EventEmitter<Person>();
@@ -28,6 +29,7 @@ export class PersonComponent implements OnInit {
   public persistPerson(p: gs.IPersonData) {
     this.persistedPerson = new Person(p);
     this.onPersisted.emit(this.persistedPerson);
+    this.personForm.reset();
   }
 
 }

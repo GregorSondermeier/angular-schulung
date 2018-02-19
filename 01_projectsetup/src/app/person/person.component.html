@@ -1,42 +1,39 @@
-<h2>Person:</h2>
-<form name="personForm">
-  <ul>
-    <li>
-      <input type="text"
-             [(ngModel)]="tmpPerson.firstName"
-             name="tmpPerson.firstName"
-             placeholder="First Name"
-             title="First Name" />
-    </li>
-    <li>
-      <input type="text"
-             [(ngModel)]="tmpPerson.lastName"
-             name="tmpPerson.lastName"
-             placeholder="Last Name"
-             title="Last Name" />
-    </li>
-    <li>
-      <input type="number"
-             [(ngModel)]="tmpPerson.height"
-             name="tmpPerson.height"
-             placeholder="Height (cm)"
-             title="Height (cm)" />
-    </li>
-    <li>
-      <input type="text"
-             [(ngModel)]="tmpPerson.gender"
-             name="tmpPerson.gender"
-             placeholder="Gender"
-             title="Gender" />
-    </li>
-    <li>
+<h2>Persist a person:</h2>
+<form [formGroup]="personForm" novalidate>
+
+  <input type="text"
+         formControlName="firstName"
+         placeholder="First Name"
+         title="First Name"
+         required />
+
+  <input type="text"
+         formControlName="lastName"
+         placeholder="Last Name"
+         title="Last Name"
+         required />
+
+  <input type="number"
+         formControlName="height"
+         placeholder="Height (cm)"
+         title="Height (cm)"
+         required />
+
+  <select formControlName="gender"
+          title="Gender"
+          required>
+    <option [ngValue]="null" disabled>- gender -</option>
+    <option value="MALE">{{'MALE' | gender}}</option>
+    <option value="FEMALE">{{'FEMALE' | gender}}</option>
+  </select>
 
       <button type="submit"
-              (click)="persistPerson(tmpPerson)"
-              title="persistPerson(tmpPerson)">persistPerson(tmpPerson)</button>
-    </li>
-    <li>
-      <span *ngIf="persistedPerson">{{persistedPerson.name()}} is a {{persistedPerson.gender | gender}} and is {{persistedPerson | personHeight}} tall.</span>
-    </li>
-  </ul>
+              (click)="persistPerson(personForm.value)"
+              [disabled]="personForm.invalid"
+              title="persistPerson(personForm.value)">persistPerson(personForm.value)</button>
 </form>
+
+<div *ngIf="persistedPerson">
+  <h3>Persisted Person:</h3>
+  {{persistedPerson.name()}}, {{persistedPerson.gender | gender}}, {{persistedPerson | personHeight}}.
+</div>
