@@ -3,24 +3,21 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
-
-import { AppComponent } from './app.component';
-import { GsmCommonModule } from "./common/common.module";
-import { GsmHomeModule } from "./home/home.module";
-import { GsmPersonModule } from "./person/person.module";
+import { GscAppComponent } from './app.component';
+import { GspCommonGenderPipe } from "./common/gender/common.gender.pipe";
+import { GscFooFormComponent } from "./home/foo-form/home.foo-form.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { GspPersonHeigtPipe } from "./person/person.height.pipe";
+import { GscPersonCreate } from "./person/create/person.create.component";
+import { GspPersonList } from "./person/list/person.list.component";
 
 registerLocaleData(localeDe, 'de');
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
-
-    GsmCommonModule,
-    GsmHomeModule,
-    GsmPersonModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
@@ -28,6 +25,22 @@ registerLocaleData(localeDe, 'de');
       useValue: 'de-DE'
     }
   ],
-  bootstrap: [AppComponent]
+  declarations: [
+
+    // app
+    GscAppComponent,
+
+    // common
+    GspCommonGenderPipe,
+
+    // home
+    GscFooFormComponent,
+
+    // person
+    GspPersonHeigtPipe,
+    GscPersonCreate,
+    GspPersonList
+  ],
+  bootstrap: [GscAppComponent]
 })
 export class AppModule { }

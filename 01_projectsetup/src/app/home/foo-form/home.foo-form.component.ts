@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'gsc-foo-form',
+  selector: 'gsc-home-foo-form',
   templateUrl: './home.foo-form.component.html',
   styleUrls: ['./home.foo-form.component.scss']
 })

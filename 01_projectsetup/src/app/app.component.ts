@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { Person } from "../_models/Person";
 
 @Component({
-  selector: 'gsa-app',
+  selector: 'gsc-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class GscAppComponent {
   public title = '...';
   public subtitle = 'A simple Angular App';
   public persons: Array<Person> = [];
@@ -21,7 +21,7 @@ export class AppComponent {
 
   private _changeTitleAfterSeconds(t: number = 3000): void {
     setTimeout(() => {
-      this.title = 'gsa-app'
+      this.title = 'gsc-app'
     }, t)
   }
 }
