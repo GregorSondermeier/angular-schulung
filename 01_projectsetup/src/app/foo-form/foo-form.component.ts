@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-foo-form',
   templateUrl: './foo-form.component.html',
-  styleUrls: ['./foo-form.component.css']
+  styleUrls: ['./foo-form.component.scss']
 })
 export class FooFormComponent implements OnInit {
   public foo: string;

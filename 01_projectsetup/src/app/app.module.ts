@@ -10,6 +10,7 @@ import { FooFormComponent } from './foo-form/foo-form.component';
 import { PersonComponent } from './person/person.component';
 import { PersonHeigtPipe } from './person/person.height.pipe';
 import { PeopleComponent } from './people/people.component';
+import {GenderPipe} from "./gender/gender.pipe";
 
 // the second parameter 'fr' is optional
 registerLocaleData(localeDe, 'de');
@@ -17,6 +18,7 @@ registerLocaleData(localeDe, 'de');
 @NgModule({
   declarations: [
     AppComponent,
+    GenderPipe,
     FooFormComponent,
     PersonComponent,
     PersonHeigtPipe,

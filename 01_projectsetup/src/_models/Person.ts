@@ -2,13 +2,13 @@ export class Person implements gs.IPerson {
   firstName: string;
   lastName: string;
   height: number;
-  salary: number;
+  gender: gs.Gender;
 
   constructor(p: gs.IPersonData) {
     this.firstName = p.firstName;
     this.lastName = p.lastName;
     this.height = p.height;
-    this.salary = p.salary;
+    this.gender = p.gender;
   }
 
   public name(): string {

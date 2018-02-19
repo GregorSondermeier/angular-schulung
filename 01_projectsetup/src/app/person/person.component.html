@@ -23,11 +23,11 @@
              title="Height (cm)" />
     </li>
     <li>
-      <input type="number"
-             [(ngModel)]="tmpPerson.salary"
-             name="tmpPerson.salary"
-             placeholder="Salary"
-             title="Salary" />
+      <input type="text"
+             [(ngModel)]="tmpPerson.gender"
+             name="tmpPerson.gender"
+             placeholder="Gender"
+             title="Gender" />
     </li>
     <li>
 
@@ -36,7 +36,7 @@
               title="persistPerson(tmpPerson)">persistPerson(tmpPerson)</button>
     </li>
     <li>
-      <span *ngIf="persistedPerson">{{persistedPerson.name()}} is {{persistedPerson | personHeight}} tall and has a salary of {{persistedPerson.salary | currency : 'EUR'}}.</span>
+      <span *ngIf="persistedPerson">{{persistedPerson.name()}} is a {{persistedPerson.gender | gender}} and is {{persistedPerson | personHeight}} tall.</span>
     </li>
   </ul>
 </form>

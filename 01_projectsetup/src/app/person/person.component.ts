@@ -7,16 +7,18 @@ import { Person } from '../../_models/Person';
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
+
   public persistedPerson: Person;
+
   public tmpPerson: gs.IPersonData = {
     firstName: null,
     lastName: null,
     height: null,
-    salary: null
+    gender: null
   };
 
-  @Output('gsAddFn')
-  addFn = new EventEmitter<Person>();
+  @Output('gsOnPersisted')
+  public onPersisted = new EventEmitter<Person>();
 
   constructor() { }
 
@@ -25,7 +27,7 @@ export class PersonComponent implements OnInit {
 
   public persistPerson(p: gs.IPersonData) {
     this.persistedPerson = new Person(p);
-    this.addFn.emit(this.persistedPerson);
+    this.onPersisted.emit(this.persistedPerson);
   }
 
 }

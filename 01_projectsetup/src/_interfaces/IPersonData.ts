@@ -3,6 +3,6 @@ namespace gs {
     firstName: string;
     lastName: string;
     height: number;
-    salary: number;
+    gender: gs.Gender;
   }
 }
