@@ -1,4 +1,4 @@
-<h2>Persist a person:</h2>
+<h2>Create a person:</h2>
 <form [formGroup]="personForm" novalidate>
 
   <input type="text"
@@ -23,17 +23,17 @@
           title="Gender"
           required>
     <option [ngValue]="null" disabled>- gender -</option>
-    <option value="MALE">{{'MALE' | gender}}</option>
-    <option value="FEMALE">{{'FEMALE' | gender}}</option>
+    <option value="MALE">{{'MALE' | gspGender}}</option>
+    <option value="FEMALE">{{'FEMALE' | gspGender}}</option>
   </select>
 
       <button type="submit"
-              (click)="persistPerson(personForm.value)"
+              (click)="create(personForm.value)"
               [disabled]="personForm.invalid"
-              title="persistPerson(personForm.value)">persistPerson(personForm.value)</button>
+              title="create(personForm.value)">create(personForm.value)</button>
 </form>
 
-<div *ngIf="persistedPerson">
-  <h3>Persisted Person:</h3>
-  {{persistedPerson.name()}}, {{persistedPerson.gender | gender}}, {{persistedPerson | personHeight}}.
+<div *ngIf="createdPerson">
+  <h3>Created Person:</h3>
+  {{createdPerson.name()}}, {{createdPerson.gender | gspGender}}, {{createdPerson | gspPersonHeight}}.
 </div>

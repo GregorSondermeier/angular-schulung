@@ -2,32 +2,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { FooFormComponent } from './foo-form/foo-form.component';
-import { PersonComponent } from './person/person.component';
-import { PersonHeigtPipe } from './person/person.height.pipe';
-import { PeopleComponent } from './people/people.component';
-import {GenderPipe} from "./gender/gender.pipe";
+import { GsmCommonModule } from "./common/common.module";
+import { GsmHomeModule } from "./home/home.module";
+import { GsmPersonModule } from "./person/person.module";
 
-// the second parameter 'fr' is optional
 registerLocaleData(localeDe, 'de');
 
 @NgModule({
   declarations: [
-    AppComponent,
-    GenderPipe,
-    FooFormComponent,
-    PersonComponent,
-    PersonHeigtPipe,
-    PeopleComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ReactiveFormsModule
+
+    GsmCommonModule,
+    GsmHomeModule,
+    GsmPersonModule
   ],
   providers: [
     {

@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'gender'
+  name: 'gspGender'
 })
-export class GenderPipe implements PipeTransform {
+export class GspCommonGenderPipe implements PipeTransform {
 
   transform(g: gs.Gender): string {
     switch (g) {

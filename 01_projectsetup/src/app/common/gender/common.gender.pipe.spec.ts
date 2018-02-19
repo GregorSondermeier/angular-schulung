@@ -1,8 +1,8 @@
-import { GenderPipe } from './gender.pipe';
+import { GspCommonGenderPipe } from "./common.gender.pipe";
 
 describe('Gender', () => {
   it('create an instance', () => {
-    const pipe = new GenderPipe();
+    const pipe = new GspCommonGenderPipe();
     expect(pipe).toBeTruthy();
   });
 });

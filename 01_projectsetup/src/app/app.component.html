@@ -7,15 +7,15 @@
 
 <hr />
 
-<app-foo-form></app-foo-form>
+<gsc-foo-form></gsc-foo-form>
 
 <hr />
 
-<app-person (gsOnPersisted)="addPersonToPeople($event)"></app-person>
+<gsc-person-create (gsOnCreated)="addPerson($event)"></gsc-person-create>
 
 <hr />
 
-<app-people [gsPeople]="people"></app-people>
+<gsc-person-list [gsPersons]="persons"></gsc-person-list>
 
 <hr />
 

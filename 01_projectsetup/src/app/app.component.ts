@@ -9,14 +9,14 @@ import { Person } from "../_models/Person";
 export class AppComponent {
   public title = '...';
   public subtitle = 'A simple Angular App';
-  public people: Array<Person> = [];
+  public persons: Array<Person> = [];
 
   constructor() {
     this._changeTitleAfterSeconds(2000);
   }
 
-  public addPersonToPeople(p: Person): void {
-    this.people.push(p);
+  public addPerson(p: Person): void {
+    this.persons.push(p);
   }
 
   private _changeTitleAfterSeconds(t: number = 3000): void {
