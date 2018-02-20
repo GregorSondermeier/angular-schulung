@@ -9,9 +9,10 @@ import { GscFooFormComponent } from "./home/foo/home-foo.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { GspPersonHeigtPipe } from "./person/person.pipes";
 import { GssPersonService } from "./person/person.service";
+import { GscPersonForm } from "./person/form/person-form.component";
 import { GscPersonCreate } from "./person/create/person-create.component";
 import { GscPersonList } from "./person/list/person-list.component";
-import { GscPersonListDetails } from "./person/list/details/person-list-details.component";
+import { GscPersonEdit } from "./person/edit/person-edit.component";
 
 registerLocaleData(localeDe, 'de');
 
@@ -41,9 +42,10 @@ registerLocaleData(localeDe, 'de');
 
     // person
     GspPersonHeigtPipe,
+    GscPersonForm,
     GscPersonCreate,
-    GscPersonList,
-    GscPersonListDetails
+    GscPersonEdit,
+    GscPersonList
   ],
   bootstrap: [
     GscAppComponent

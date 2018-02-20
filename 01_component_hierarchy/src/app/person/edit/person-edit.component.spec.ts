@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GscPersonListDetails } from './person-list-details.component';
+import { GscPersonListDetails } from './person-edit.component';
 
 describe('GscPersonList', () => {
   let component: GscPersonListDetails;

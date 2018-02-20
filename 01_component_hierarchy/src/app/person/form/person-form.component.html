@@ -1,0 +1,53 @@
+<form [formGroup]="personForm" novalidate>
+  <div class="row">
+    <div class="col-md-2">
+      <label>First Name:<br />
+        <input type="text"
+               formControlName="firstName"
+               placeholder="First Name"
+               title="First Name"
+               class="form-control"
+               required />
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label>Last Name:<br />
+        <input type="text"
+               formControlName="lastName"
+               placeholder="Last Name"
+               title="Last Name"
+               class="form-control"
+               required />
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label>Height:<br />
+        <input type="number"
+               formControlName="height"
+               placeholder="Height (cm)"
+               title="Height (cm)"
+               class="form-control"
+               required />
+      </label>
+    </div>
+    <div class="col-md-2">
+      <label>Gender:<br />
+        <select formControlName="gender"
+                title="Gender"
+                class="form-control"
+                required>
+          <option [ngValue]="null" disabled>- gender -</option>
+          <option value="MALE">{{'MALE' | gspGender}}</option>
+          <option value="FEMALE">{{'FEMALE' | gspGender}}</option>
+        </select>
+      </label>
+    </div>
+    <div class="col-md-2">
+      <button type="submit"
+              (click)="callAction(personForm.value)"
+              [disabled]="personForm.invalid"
+              title="call action"
+              class="btn btn-success mt-4">call action</button>
+    </div>
+  </div>
+</form>

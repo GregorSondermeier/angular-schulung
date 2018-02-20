@@ -1,6 +1,25 @@
 <h2>People:</h2>
-<ul>
-  <li *ngFor="let person of persons">
-    <gsc-person-list-details [gsPerson]="person"></gsc-person-list-details>
-  </li>
-</ul>
+<table class="table table-sm table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Height</th>
+      <th scope="col">Gender</th>
+      <th class="text-right">Actions</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <th scope="row" [attr.title]="person.id">{{person.name()}}</th>
+      <td>{{person | gspPersonHeight}}</td>
+      <td>{{person.gender | gspGender}}</td>
+      <td class="text-right">
+        <button class="btn btn-xs btn-link"
+                (click)="focus.emit(person)"
+                title="Edit">E</button> |
+        <button class="btn btn-xs btn-link"
+                (click)="delete.emit(person)"
+                title="Delete">D</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

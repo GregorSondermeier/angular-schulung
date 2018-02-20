@@ -14,7 +14,29 @@ export class GssPersonService {
    * The constructor initializes the persons persisted by this Service.
    */
   constructor() {
-    this.persons = [];
+    this.persons = [
+      new Person({
+        id: generateUUID(),
+        firstName: 'Arno',
+        lastName: 'Nym',
+        height: 180,
+        gender: 'MALE'
+      }),
+      new Person({
+        id: generateUUID(),
+        firstName: 'Manuela',
+        lastName: 'Mustermann',
+        height: 170,
+        gender: 'FEMALE'
+      }),
+      new Person({
+        id: generateUUID(),
+        firstName: 'Axel',
+        lastName: 'Schweiß',
+        height: 185,
+        gender: 'MALE'
+      })
+    ];
   }
 
   /**
