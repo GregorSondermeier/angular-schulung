@@ -5,6 +5,8 @@ import localeDe from '@angular/common/locales/de';
 
 import {UIRouterModule} from "@uirouter/angular";
 
+import { routes } from "./app.routes";
+
 import { GscAppComponent } from './app.component';
 import { GspCommonGenderPipe } from "./common/gender/common-gender.pipe";
 import { GscGlobalHeader } from "./global/header/global-header.component";
@@ -21,10 +23,6 @@ import { GscPersonEdit } from "./person/edit/person-edit.component";
 
 registerLocaleData(localeDe, 'de');
 
-let homeState = { name: 'home', url: '',  component: GscHome };
-let fooState = { name: 'foo', url: '/foo',  component: GscFoo };
-let personState = { name: 'person', url: '/person', component: GscPerson };
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -32,11 +30,7 @@ let personState = { name: 'person', url: '/person', component: GscPerson };
     ReactiveFormsModule,
 
     UIRouterModule.forRoot({
-      states: [
-        homeState,
-        fooState,
-        personState
-      ],
+      states: routes,
       useHash: true
     })
   ],
