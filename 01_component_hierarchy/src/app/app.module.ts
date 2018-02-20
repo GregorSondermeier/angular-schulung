@@ -43,6 +43,8 @@ registerLocaleData(localeDe, 'de');
     GscPersonList,
     GscPersonListDetails
   ],
-  bootstrap: [GscAppComponent]
+  bootstrap: [
+    GscAppComponent
+  ]
 })
 export class AppModule { }

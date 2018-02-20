@@ -7,15 +7,21 @@
     <li>
       FOO: {{foo | uppercase}}
     </li>
-    <li>
-      <input type="text"
-             [(ngModel)]="fooTemp"
-             name="fooTemp"
-             placeholder="New Value of foo"
-             title="New Value of foo" />
-      <button type="submit"
-              (click)="changeFoo(fooTemp)"
-              title="changeFoo()">changeFoo()</button>
+    <li class="row">
+      <div class="col-md-2">
+        <input type="text"
+               [(ngModel)]="fooTemp"
+               name="fooTemp"
+               placeholder="New Value of foo"
+               title="New Value of foo"
+               class="form-control" />
+      </div>
+      <div class="col-md-2">
+        <button type="submit"
+                (click)="changeFoo(fooTemp)"
+                class="btn btn-success"
+                title="changeFoo()">changeFoo()</button>
+      </div>
     </li>
   </ul>
 </form>
