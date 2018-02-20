@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Person } from '../../../_models/Person';
+import { GssPersonService } from "../person.service";
 
 @Component({
   selector: 'gsc-person-create',
@@ -10,6 +11,10 @@ import { Person } from '../../../_models/Person';
 export class GscPersonCreate {
 
   public createdPerson: Person;
+
+  constructor(private readonly personService: GssPersonService) {
+
+  }
 
   public personForm: FormGroup = new FormGroup ({
     firstName: new FormControl(),
@@ -22,7 +27,7 @@ export class GscPersonCreate {
   public onCreated = new EventEmitter<Person>();
 
   public create(p: gs.IPersonData) {
-    this.createdPerson = new Person(p);
+    this.createdPerson = this.personService.createPerson(p);
     this.onCreated.emit(this.createdPerson);
     this.personForm.reset();
   }

@@ -8,6 +8,7 @@ import { GspCommonGenderPipe } from "./common/gender/common-gender.pipe";
 import { GscFooFormComponent } from "./home/foo/home-foo.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { GspPersonHeigtPipe } from "./person/person.pipes";
+import { GssPersonService } from "./person/person.service";
 import { GscPersonCreate } from "./person/create/person-create.component";
 import { GscPersonList } from "./person/list/person-list.component";
 import { GscPersonListDetails } from "./person/list/details/person-list-details.component";
@@ -21,6 +22,7 @@ registerLocaleData(localeDe, 'de');
     ReactiveFormsModule
   ],
   providers: [
+    GssPersonService,
     {
       provide: LOCALE_ID,
       useValue: 'de-DE'

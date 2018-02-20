@@ -2,45 +2,53 @@
 <form [formGroup]="personForm" novalidate>
   <div class="row">
     <div class="col-md-2">
-      <input type="text"
-             formControlName="firstName"
-             placeholder="First Name"
-             title="First Name"
-             class="form-control"
-             required />
+      <label>First Name:<br />
+        <input type="text"
+               formControlName="firstName"
+               placeholder="First Name"
+               title="First Name"
+               class="form-control"
+               required />
+      </label>
     </div>
     <div class="col-md-2">
-      <input type="text"
-             formControlName="lastName"
-             placeholder="Last Name"
-             title="Last Name"
-             class="form-control"
-             required />
+      <label>Last Name:<br />
+        <input type="text"
+               formControlName="lastName"
+               placeholder="Last Name"
+               title="Last Name"
+               class="form-control"
+               required />
+      </label>
     </div>
     <div class="col-md-2">
-      <input type="number"
-             formControlName="height"
-             placeholder="Height (cm)"
-             title="Height (cm)"
-             class="form-control"
-             required />
+      <label>Height:<br />
+        <input type="number"
+               formControlName="height"
+               placeholder="Height (cm)"
+               title="Height (cm)"
+               class="form-control"
+               required />
+      </label>
     </div>
     <div class="col-md-2">
-      <select formControlName="gender"
-              title="Gender"
-              class="form-control"
-              required>
-        <option [ngValue]="null" disabled>- gender -</option>
-        <option value="MALE">{{'MALE' | gspGender}}</option>
-        <option value="FEMALE">{{'FEMALE' | gspGender}}</option>
-      </select>
+      <label>Gender:<br />
+        <select formControlName="gender"
+                title="Gender"
+                class="form-control"
+                required>
+          <option [ngValue]="null" disabled>- gender -</option>
+          <option value="MALE">{{'MALE' | gspGender}}</option>
+          <option value="FEMALE">{{'FEMALE' | gspGender}}</option>
+        </select>
+      </label>
     </div>
     <div class="col-md-2">
       <button type="submit"
               (click)="create(personForm.value)"
               [disabled]="personForm.invalid"
               title="create(personForm.value)"
-              class="btn btn-success">create(personForm.value)</button>
+              class="btn btn-success mt-4">create(personForm.value)</button>
     </div>
   </div>
 </form>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Person } from "../_models/Person";
+import { GssPersonService } from "./person/person.service";
 
 @Component({
   selector: 'gsc-app',
@@ -9,14 +10,15 @@ import { Person } from "../_models/Person";
 export class GscAppComponent {
   public title = '...';
   public subtitle = 'A simple Angular App';
-  public persons: Array<Person> = [];
+  public persons: Array<Person>;
 
-  constructor() {
+  constructor(private readonly personService: GssPersonService) {
     this._changeTitleAfterSeconds(2000);
+    this.persons = this.personService.persons;
   }
 
   public addPerson(p: Person): void {
-    this.persons.push(p);
+    this.personService.addPerson(p);
   }
 
   private _changeTitleAfterSeconds(t: number = 3000): void {
