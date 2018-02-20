@@ -1,0 +1,10 @@
+<gsc-person-create (gsOnCreated)="addPerson($event)"></gsc-person-create>
+
+<hr />
+
+<gsc-person-edit [gsPerson]="focusedPerson"
+                 (gsOnUpdated)="updatePerson($event)"></gsc-person-edit>
+
+<gsc-person-list [gsPersons]="persons"
+                 (gsFocus)="focusPerson($event)"
+                 (gsDelete)="deletePerson($event)"></gsc-person-list>

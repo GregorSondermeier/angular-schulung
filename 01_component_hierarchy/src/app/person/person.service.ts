@@ -14,6 +14,7 @@ export class GssPersonService {
    * The constructor initializes the persons persisted by this Service.
    */
   constructor() {
+    console.log('GssPersonService constructor()');
     this.persons = [
       new Person({
         id: generateUUID(),
@@ -54,7 +55,7 @@ export class GssPersonService {
    * @param {gs.IPersonData} p
    * @returns {Person}
    */
-  public createPerson(p: gs.IPersonData): Person {
+  public createPerson(p?: gs.IPersonData): Person {
     return new Person(Object.assign({id: generateUUID()}, p));
   }
 

@@ -3,12 +3,17 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
+import {UIRouterModule} from "@uirouter/angular";
+
 import { GscAppComponent } from './app.component';
 import { GspCommonGenderPipe } from "./common/gender/common-gender.pipe";
-import { GscFooFormComponent } from "./home/foo/home-foo.component";
+import { GscGlobalHeader } from "./global/header/global-header.component";
+import { GscHome } from "./home/home.component";
+import { GscFoo } from "./foo/foo.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { GspPersonHeigtPipe } from "./person/person.pipes";
 import { GssPersonService } from "./person/person.service";
+import { GscPerson } from "./person/person.component";
 import { GscPersonForm } from "./person/form/person-form.component";
 import { GscPersonCreate } from "./person/create/person-create.component";
 import { GscPersonList } from "./person/list/person-list.component";
@@ -16,11 +21,24 @@ import { GscPersonEdit } from "./person/edit/person-edit.component";
 
 registerLocaleData(localeDe, 'de');
 
+let homeState = { name: 'home', url: '',  component: GscHome };
+let fooState = { name: 'foo', url: '/foo',  component: GscFoo };
+let personState = { name: 'person', url: '/person', component: GscPerson };
+
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    UIRouterModule.forRoot({
+      states: [
+        homeState,
+        fooState,
+        personState
+      ],
+      useHash: true
+    })
   ],
   providers: [
     GssPersonService,
@@ -37,11 +55,18 @@ registerLocaleData(localeDe, 'de');
     // common
     GspCommonGenderPipe,
 
+    // global
+    GscGlobalHeader,
+
     // home
-    GscFooFormComponent,
+    GscHome,
+
+    // foo
+    GscFoo,
 
     // person
     GspPersonHeigtPipe,
+    GscPerson,
     GscPersonForm,
     GscPersonCreate,
     GscPersonEdit,

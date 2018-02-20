@@ -20,34 +20,22 @@ export class GscPersonForm implements OnChanges {
   public personForm: FormGroup;
 
   constructor(private readonly personService: GssPersonService) {
-    this.person = this.personService.createPerson({
-      firstName: null,
-      lastName: null,
-      height: null,
-      gender: null
-    });
+    this.person = new Person();
     this._setupForm(this.person);
   }
 
   public ngOnChanges() {
-    if (!this.person) {
-      this.person = this.personService.createPerson({
-        firstName: null,
-        lastName: null,
-        height: null,
-        gender: null
-      });
-    }
-    this._setupForm(this.person);
+    this._setupForm(new Person(this.person));
   }
 
   public callAction(p: gs.IPersonData) {
-    this.action.emit(this.personService.createPerson(Object.assign({id: this.person.id}, p)));
+    this.action.emit(this.personService.createPerson(p));
     this.personForm.reset();
   }
 
   private _setupForm(p: Person) {
     this.personForm = new FormGroup ({
+      id: new FormControl(p.id),
       firstName: new FormControl(p.firstName),
       lastName: new FormControl(p.lastName),
       height: new FormControl(p.height),

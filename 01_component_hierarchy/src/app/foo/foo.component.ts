@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'gsc-home-foo-form',
-  templateUrl: './home-foo.component.html',
-  styleUrls: ['./home-foo.component.scss']
+  selector: 'gsc-foo',
+  templateUrl: './foo.component.html',
+  styleUrls: ['./foo.component.scss']
 })
-export class GscFooFormComponent {
+export class GscFoo {
   public foo: string;
   public fooTemp: string;
 

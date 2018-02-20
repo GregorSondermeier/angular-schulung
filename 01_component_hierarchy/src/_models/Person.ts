@@ -5,7 +5,13 @@ export class Person implements gs.IPerson {
   height: number;
   gender: gs.Gender;
 
-  constructor(p: gs.IPersonData) {
+  constructor(p: gs.IPersonData = {
+    id: null,
+    firstName: null,
+    lastName: null,
+    height: null,
+    gender: null
+  }) {
     this.id = p.id;
     this.firstName = p.firstName;
     this.lastName = p.lastName;
