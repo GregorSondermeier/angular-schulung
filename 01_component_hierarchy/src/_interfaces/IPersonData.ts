@@ -1,6 +1,6 @@
 namespace gs {
   export interface IPersonData {
-    id?: string,
+    id?: string;
     firstname: string;
     lastname: string;
     height: number;

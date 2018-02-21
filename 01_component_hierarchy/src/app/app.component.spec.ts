@@ -22,6 +22,6 @@ describe('GscAppComponent', () => {
     const fixture = TestBed.createComponent(GscAppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to NO TITLE!');
   }));
 });
