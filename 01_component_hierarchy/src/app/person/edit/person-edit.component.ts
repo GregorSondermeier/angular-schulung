@@ -19,12 +19,17 @@ export class GscPersonEdit implements OnInit {
   }
 
   public ngOnInit() {
-    this.person = this.personService.readPerson(this.transition.params().pid);
+    this.personService.$read(this.transition.params().pid)
+      .then((p: Person) => {
+        this.person = p;
+      });
   }
 
   public update(p: Person) {
-    this.personService.updatePerson(p);
-    this.stateService.go('person');
+    this.personService.$update(p)
+      .then(() => {
+        this.stateService.go('person');
+      });
   }
 
 }

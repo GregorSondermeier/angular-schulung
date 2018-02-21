@@ -22,8 +22,10 @@ export class GscPersonCreate implements OnInit {
   }
 
   public create(p: Person) {
-    this.personService.addPerson(p);
-    this.stateService.go('person');
+    this.personService.$create(p)
+      .then(() => {
+        this.stateService.go('person');
+      });
   }
 
 }

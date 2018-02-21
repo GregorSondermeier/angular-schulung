@@ -27,7 +27,7 @@ export class GscPersonForm implements OnChanges {
   }
 
   public callAction(p: gs.IPersonData) {
-    this.action.emit(this.personService.createPerson(p));
+    this.action.emit(new Person(p));
     this.personForm.reset();
   }
 

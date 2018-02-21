@@ -1,112 +1,82 @@
 import { Injectable } from '@angular/core';
 import { Person } from "../../_models/Person";
-import { generateUUID } from "../../_vanilla/gs-helpers";
+import { Subject } from "rxjs/Subject";
 
 @Injectable()
 export class GssPersonService {
 
   /**
-   * The list of persons persisted by this Service.
+   * A Subject of the list of persons persisted by this Service.
    */
-  public persons: Array<Person>;
+  public persons: Subject<Array<Person>> = new Subject<Array<Person>>();
 
-  /**
-   * The constructor initializes the persons persisted by this Service.
-   */
-  constructor() {
-    console.log('GssPersonService constructor()');
-    this.persons = [
-      new Person({
-        id: generateUUID(),
-        firstname: 'Arno',
-        lastname: 'Nym',
-        height: 180,
-        gender: 'm'
-      }),
-      new Person({
-        id: generateUUID(),
-        firstname: 'Manuela',
-        lastname: 'Mustermann',
-        height: 170,
-        gender: 'f'
-      }),
-      new Person({
-        id: generateUUID(),
-        firstname: 'Axel',
-        lastname: 'Schweiß',
-        height: 185,
-        gender: 'm'
-      })
-    ];
+  public $list(): Promise<Array<Person>> {
+    return fetch('//localhost:8080/people', {
+      method: 'GET'
+    }).then(response => response.json())
+      .then((people: Array<gs.IPersonData>): Array<Person> => {
+        let ps: Array<Person> = people.map((p) => new Person(p));
+        this.persons.next(ps);
+        return ps;
+      });
   }
 
   /**
-   * Adds a Person to the persons persisted by this Service.
+   * Creates a Person and returns a Promise with the Response.
    *
    * @param {gs.IPersonData} p
+   * @returns {Promise<Response>}
    */
-  public addPerson(p: gs.IPersonData): void {
-    this.persons.push(new Person(Object.assign({id: generateUUID()}, p)));
+  public $create(p: gs.IPersonData): Promise<Response> {
+    return fetch('//localhost:8080/people', {
+      method: 'POST',
+      body: JSON.stringify(p),
+      headers: new Headers({
+        'content-type': 'application/json'
+      }),
+    });
   }
 
   /**
-   * Creates a Person, and returns the created Person.
-   *
-   * @param {gs.IPersonData} p
-   * @returns {Person}
-   */
-  public createPerson(p?: gs.IPersonData): Person {
-    return new Person(Object.assign({id: generateUUID()}, p));
-  }
-
-  /**
-   * Returns a Person from the persons persisted by this Service.
+   * Reads a Person and returns a Promise with the Person.
    *
    * @param {string} id
-   * @returns {Person}
+   * @returns {Promise<Person>}
    */
-  public readPerson(id: string): Person {
-    let idx = this.persons.findIndex((p) => p.id == id);
-    if (idx != -1) {
-      return new Person(this.persons[idx]);
-    } else {
-      console.error(`Person with id ${id} is not known`);
-      return null;
-    }
+  public $read(id: string): Promise<Person> {
+    return fetch(`//localhost:8080/people/${id}`, {
+      method: 'GET'
+    }).then(response => response.json())
+      .then((p: gs.IPersonData) => {
+        return new Person(p);
+      });
   }
 
   /**
-   * Updates a Person, updates the persons persisted by this Service and returns the updated Person.
+   * Updates a Person and returns a Promise with the Response.
    *
    * @param {gs.IPersonData} p
-   * @returns {Person}
+   * @returns {Promise<Response>}
    */
-  public updatePerson(p: Person): Person {
-    let idx = this.persons.findIndex((p2) => p2.id == p.id);
-    if (idx != -1) {
-      let person = new Person(p);
-      this.persons[idx] = person;
-      return person;
-    } else {
-      console.error(`Person with id ${p.id} is not known`);
-      return null;
-    }
+  public $update(p: Person): Promise<Response> {
+    return fetch('//localhost:8080/people', {
+      method: 'PUT',
+      body: JSON.stringify(p),
+      headers: new Headers({
+        'content-type': 'application/json'
+      })
+    });
   }
 
   /**
-   * Deletes a Person, removes it from the persons persisted by this Service and returns the deleted Person.
+   * Deletes a Person and returns a Promise with the Response.
    *
    * @param {Person} p
-   * @returns {Person}
+   * @returns {Promise<Response>}
    */
-  public deletePerson(p: Person): Person {
-    let idx = this.persons.findIndex((p2) => p2.id == p.id);
-    if (idx != -1) {
-      this.persons.splice(idx, 1);
-      return p;
-    } else {
-      console.error(`Person with id ${p.id} is not known`);
-      return null;
-    }
+  public $delete(p: Person): Promise<Response> {
+    return fetch(`//localhost:8080/people/${p.id}`, {
+      method: 'DELETE'
+    });
   }
 }
