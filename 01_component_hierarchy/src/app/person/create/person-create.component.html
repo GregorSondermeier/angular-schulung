@@ -1,0 +1,11 @@
+<h2>Create a person:</h2>
+
+<gsc-person-form [gsPerson]="person"
+                 (gsAction)="create($event)"></gsc-person-form>
+
+<div *ngIf="createdPerson" class="row mt-4">
+  <div class="col-md">
+    <h3>Created Person:</h3>
+    <p>{{createdPerson.name()}}, {{createdPerson.gender | gspGender}}, {{createdPerson | gspPersonHeight}}</p>
+  </div>
+</div>

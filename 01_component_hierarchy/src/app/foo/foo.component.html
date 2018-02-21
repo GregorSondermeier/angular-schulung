@@ -1,0 +1,27 @@
+<h2>fooForm:</h2>
+<form name="FooFormForm">
+  <ul>
+    <li>
+      foo: {{foo}}
+    </li>
+    <li>
+      FOO: {{foo | uppercase}}
+    </li>
+    <li class="row">
+      <div class="col-md-2">
+        <input type="text"
+               [(ngModel)]="fooTemp"
+               name="fooTemp"
+               placeholder="New Value of foo"
+               title="New Value of foo"
+               class="form-control" />
+      </div>
+      <div class="col-md-2">
+        <button type="submit"
+                (click)="changeFoo(fooTemp)"
+                class="btn btn-success"
+                title="changeFoo()">changeFoo()</button>
+      </div>
+    </li>
+  </ul>
+</form>

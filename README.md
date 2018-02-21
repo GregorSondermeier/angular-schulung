@@ -1,1 +1,1 @@
-# angular-schulung
+# Angular Schulung
