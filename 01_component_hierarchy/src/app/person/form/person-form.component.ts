@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core
 import { FormControl, FormGroup } from '@angular/forms';
 import { Person } from '../../../_models/Person';
 import { GssPersonService } from "../person.service";
-import { generateUUID } from "../../../_vanilla/gs-helpers";
 
 @Component({
   selector: 'gsc-person-form',
@@ -20,8 +19,7 @@ export class GscPersonForm implements OnChanges {
   public personForm: FormGroup;
 
   constructor(private readonly personService: GssPersonService) {
-    this.person = new Person();
-    this._setupForm(this.person);
+
   }
 
   public ngOnChanges() {
@@ -36,8 +34,8 @@ export class GscPersonForm implements OnChanges {
   private _setupForm(p: Person) {
     this.personForm = new FormGroup ({
       id: new FormControl(p.id),
-      firstName: new FormControl(p.firstName),
-      lastName: new FormControl(p.lastName),
+      firstname: new FormControl(p.firstname),
+      lastname: new FormControl(p.lastname),
       height: new FormControl(p.height),
       gender: new FormControl(p.gender)
     });

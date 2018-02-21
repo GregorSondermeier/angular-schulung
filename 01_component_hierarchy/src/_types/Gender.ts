@@ -1,3 +1,3 @@
 namespace gs {
-  export type Gender = 'MALE' | 'FEMALE';
+  export type Gender = 'm' | 'f';
 }

@@ -18,24 +18,24 @@ export class GssPersonService {
     this.persons = [
       new Person({
         id: generateUUID(),
-        firstName: 'Arno',
-        lastName: 'Nym',
+        firstname: 'Arno',
+        lastname: 'Nym',
         height: 180,
-        gender: 'MALE'
+        gender: 'm'
       }),
       new Person({
         id: generateUUID(),
-        firstName: 'Manuela',
-        lastName: 'Mustermann',
+        firstname: 'Manuela',
+        lastname: 'Mustermann',
         height: 170,
-        gender: 'FEMALE'
+        gender: 'f'
       }),
       new Person({
         id: generateUUID(),
-        firstName: 'Axel',
-        lastName: 'Schweiß',
+        firstname: 'Axel',
+        lastname: 'Schweiß',
         height: 185,
-        gender: 'MALE'
+        gender: 'm'
       })
     ];
   }

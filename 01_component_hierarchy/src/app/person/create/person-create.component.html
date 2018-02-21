@@ -1,6 +1,7 @@
 <h2>Create a person:</h2>
 
-<gsc-person-form (gsAction)="create($event)"></gsc-person-form>
+<gsc-person-form [gsPerson]="person"
+                 (gsAction)="create($event)"></gsc-person-form>
 
 <div *ngIf="createdPerson" class="row mt-4">
   <div class="col-md">

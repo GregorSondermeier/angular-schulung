@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { StateService } from '@uirouter/angular';
 import { Person } from '../../../_models/Person';
 import { GssPersonService } from "../person.service";
 
@@ -7,20 +8,22 @@ import { GssPersonService } from "../person.service";
   templateUrl: './person-create.component.html',
   styleUrls: ['./person-create.component.scss']
 })
-export class GscPersonCreate {
+export class GscPersonCreate implements OnInit {
 
-  public createdPerson: Person;
+  public person: Person;
 
-  @Output('gsOnCreated')
-  public onCreated = new EventEmitter<Person>();
-
-  constructor(private readonly personService: GssPersonService) {
+  constructor(private readonly personService: GssPersonService,
+              private readonly stateService: StateService) {
 
   }
 
+  public ngOnInit() {
+    this.person = new Person();
+  }
+
   public create(p: Person) {
-    this.createdPerson = p;
-    this.onCreated.emit(this.createdPerson);
+    this.personService.addPerson(p);
+    this.stateService.go('person');
   }
 
 }

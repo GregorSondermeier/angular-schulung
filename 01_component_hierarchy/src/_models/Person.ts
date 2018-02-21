@@ -1,26 +1,26 @@
 export class Person implements gs.IPerson {
   id: string;
-  firstName: string;
-  lastName: string;
+  firstname: string;
+  lastname: string;
   height: number;
   gender: gs.Gender;
 
   constructor(p: gs.IPersonData = {
     id: null,
-    firstName: null,
-    lastName: null,
+    firstname: null,
+    lastname: null,
     height: null,
     gender: null
   }) {
     this.id = p.id;
-    this.firstName = p.firstName;
-    this.lastName = p.lastName;
+    this.firstname = p.firstname;
+    this.lastname = p.lastname;
     this.height = p.height;
     this.gender = p.gender;
   }
 
   public name(): string {
-    return `${this.firstName} ${this.lastName}`;
+    return `${this.firstname} ${this.lastname}`;
   }
 
 }

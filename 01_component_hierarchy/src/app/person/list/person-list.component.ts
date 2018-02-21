@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Person } from "../../../_models/Person";
+import { GssPersonService } from "../person.service";
 
 @Component({
   selector: 'gsc-person-list',
@@ -8,13 +9,14 @@ import { Person } from "../../../_models/Person";
 })
 export class GscPersonList {
 
-  @Input('gsPersons')
   public persons: Array<Person>;
 
-  @Output('gsFocus')
-  public focus: EventEmitter<Person> = new EventEmitter<Person>();
+  constructor(private readonly personService: GssPersonService) {
+    this.persons = this.personService.persons;
+  }
 
-  @Output('gsDelete')
-  public delete: EventEmitter<Person> = new EventEmitter<Person>();
+  public delete(p: Person): void {
+    this.personService.deletePerson(p);
+  }
 
 }

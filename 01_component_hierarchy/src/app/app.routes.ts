@@ -2,6 +2,8 @@ import { GscHome } from "./home/home.component";
 import { GscPersonCreate } from "./person/create/person-create.component";
 import { GscFoo } from "./foo/foo.component";
 import { GscPersonList } from "./person/list/person-list.component";
+import { GscPerson } from "./person/person.component";
+import { GscPersonEdit } from "./person/edit/person-edit.component";
 
 export const routes = [
   {
@@ -17,6 +19,7 @@ export const routes = [
   {
     name: 'person',
     url: '/person',
+    component: GscPerson,
     redirectTo: 'person.list'
   },
   {
@@ -28,5 +31,10 @@ export const routes = [
     name: 'person.create',
     url: '/create',
     component: GscPersonCreate
+  },
+  {
+    name: 'person.edit',
+    url: '/{pid}',
+    component: GscPersonEdit
   }
 ];

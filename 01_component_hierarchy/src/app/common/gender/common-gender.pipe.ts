@@ -7,9 +7,9 @@ export class GspCommonGenderPipe implements PipeTransform {
 
   transform(g: gs.Gender): string {
     switch (g) {
-      case 'MALE':
+      case 'm':
         return 'male';
-      case 'FEMALE':
+      case 'f':
         return 'female';
     }
   }
